@@ -66,6 +66,7 @@ void setup() {
 
 void draw() {
   background(0);
+  print(v6);
   terrain = new float[cols][rows];
   images[currentImageIndex].loadPixels();
   for (int y = 0; y < rows; y++) {
@@ -98,7 +99,8 @@ void draw() {
   // Drawing the terrain
   for (int y = 0; y < rows - 1; y++) {
     beginShape(TRIANGLE_STRIP);
-    texture(images[currentImageIndex]);
+    
+    //texture(images[currentImageIndex]);
     for (int x = 0; x < cols; x++) {
       float u = map(x, 0, cols - 1, 0, 1);
       float v1 = map(y, 0, rows - 1, 0, 1);
@@ -132,7 +134,7 @@ void keyPressed() {
       initialRotateX = map(mouseY, 0, height, -HALF_PI, HALF_PI); // Store current X rotation
       initialRotateY = map(mouseX, 0, width, -PI, PI); // Store current Y rotation
     }
-  } else if (key == ' '||v6) { // Press spacebar to switch to the next image
+  } else if (key == ' ') { // Press spacebar to switch to the next image
     currentImageIndex = (currentImageIndex + 1) % images.length;
   }
 }
